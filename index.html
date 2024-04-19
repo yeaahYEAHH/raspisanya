@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="./style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<meta http-equiv="Refresh" content="18000">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
 		rel="stylesheet">
 	<title>Расписание</title>
@@ -15,7 +16,11 @@
 	<main class="page">
 		<img src="./assets/logo.png" alt="logo" class="logo">
 
-		<img src="./assets/dancingShark.gif" alt="git" style="position: absolute; top:45%; left: 50%; transform: translate(-50%, -50%);">
+				<img src="./assets/dancingShark.gif" alt="git" style="position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);z-index: 3;">
+		<img src="./assets/1.gif" alt="git" style="position: absolute; top:0; left: 0; z-index: 3;">
+		<img src="./assets/2.gif" alt="git" style="position: absolute; top:0; right: 0; z-index: 3;">
+		<img src="./assets/3.gif" alt="git"style="position: absolute; bottom: 0; right: 0; z-index: 3;">
+		<img src="./assets/4.gif" alt="git"style="position: absolute; bottom:0; left: 0; z-index: 3;">
 
 		<div class="container">
 			<div class="content">
@@ -67,18 +72,22 @@
 					</div>
 				</div>
 
-				<div class="content__item birthday" id="trihd">
+				<div class="content__item birthday" id="third">
 					<div class="birthday__item">
-						<h3>День рождение</h3>
-						<img class="birthdayhat" src="./assets/birthdayhat.svg" alt="hat">
+						<h3>
+							День рождение
+							<img class="birthdayhat" src="./assets/birthdayhat.svg" alt="hat">
+						</h3>
 					</div>
 					<div class="birthday__item">
-						<img src="./assets//cake.svg" alt="cake">
-						<h3 class="gradient__text birthdayName" id="birthday"></h3>
+						
+						<div class="birthday__content">
+							<h3 class="birthdayName" id="birthday">
+							</h3>
+						</div>
+			
 					</div>
-
-					
-					<img src="./assets/birthday.svg" alt="boom" class="boom">
+					<!-- <img src="./assets/birthday.svg" alt="boom" class="boom">  -->
 				</div>
 			</div>
 		</div>
@@ -88,3 +97,4 @@
 	<script src="./script.js" type="module"></script>
 </body>
 </html>
+

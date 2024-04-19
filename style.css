@@ -68,7 +68,7 @@
 	background-color: transparent;
 }
 
-#trihd {
+#third {
 	display: flex;
 	justify-content: center;
 	grid-area: footer;
@@ -199,13 +199,16 @@
 	justify-content: center;
 	gap: 10px;
 	padding: 5px;
-	position: relative;
 }
 
-.birthdayhat{
+.birthday__item > h3{
+	position: relative;	
+}
+
+.birthdayhat {
 	position: absolute;
-	top: 2px;
-	right: -3px;
+	top: -3px;
+	right: -9px;
 }
 
 .boom{
@@ -214,18 +217,31 @@
 	right: 0;
 }
 
-.birthdayName{
+.birthday__content{
 	position: relative;
+	width: 1221px;
+	height: 48px;
 	overflow: hidden;
+}
+
+.birthdayName{
+	position: absolute;
 	display: flex;
-	flex-direction: column; 
+	flex-direction: column;
+	top: 0px;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	transition: .3s;
 }
 
 .birthdayName__card{
-	opacity: 0;
-	display: none;
+	display: flex;
+	gap: 10px;
+	align-items: center;
 	transition: .6s ease-in;
 }
+
 
 
 h1{
