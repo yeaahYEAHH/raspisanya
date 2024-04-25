@@ -12,6 +12,24 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-weight: normal;
+	transition: 3s ease-in-out background-color;
+}
+
+.absoluteLink{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: transparent;
+	text-decoration: none;
+	padding: 20px;
+	transition: .3s ;
+	z-index: 9;
+	font-size: 40px;
+}
+
+.absoluteLink:hover{
+	color: #0472D1;
+	background-color: #0FEAB4;
 }
 
 .gradient__text {

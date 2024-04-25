@@ -1,6 +1,13 @@
-import { weekDay, objLDK, month } from "./const.js";
+import { weekDay, objLDK, month, objUAK, objUPK } from "./const.js";
 import objDateBr from "./birthday.js";
 const date = new Date();
+
+if(!(date.getHours() < 10 && date.getHours() < 16)){
+	document.documentElement.style.setProperty('--darkBackgroundColor', '#F8F8F8');
+	document.documentElement.style.setProperty('--darkContainerColor', '#FFFFFF');
+	document.documentElement.style.setProperty('--darkItemColor', '#F3F4F6');
+}
+
 
 document.querySelector('#day').innerHTML = (date.getUTCDate() >= 10) ? date.getUTCDate() : `0${date.getUTCDate()}`;
 document.querySelector('#year').innerHTML = `${date.getFullYear()} год`;
@@ -39,7 +46,7 @@ function time(){
 	document.querySelector('#time').innerHTML = realTime;
 }
 time()
-setInterval(time, 30000);
+setInterval(time, 20000);
 
 let hidden = true;
 document.addEventListener("visibilitychange", () =>{
@@ -59,18 +66,28 @@ function actualLesson(obj){
 	let minutes = +obj[getActualLesson(obj, actualTime)].timeEnd.split(':')[1];
 		minutes = minutes > time.getMinutes() ? minutes : minutes + 59;
 
-	sec = sec >= 0 ? 59 : sec;
+	sec = sec <= 0 ? 59 : sec;
 	document.querySelector('#type').innerHTML = obj[getActualLesson(obj, actualTime)].type;
+	if(obj[getActualLesson(obj, actualTime)].type == "до урока"){
+		document.querySelector('#aftertype').style.display = 'none';
+	}
 	document.querySelector('#timer').innerHTML = `${
-		((minutes - time.getMinutes())) < 10 ? 
-		`0${(minutes - time.getMinutes())}` : (minutes - time.getMinutes()) 
+		((minutes - time.getMinutes()) - 1) < 10 ? 
+		`0${(minutes - time.getMinutes())}` : (minutes - time.getMinutes() - 1) 
 	}:${
 		(sec - time.getSeconds()) < 10 ? 
 		`0${(sec - time.getSeconds())}` : (sec - time.getSeconds())
 	}`
 }
 
-setInterval(actualLesson, 1000, objLDK)
+
+let listObj = {
+	'LDK': objLDK,
+	'UAK': objUAK,
+	'UPK': objUPK
+}
+
+setInterval(actualLesson, 1000, listObj[document.title])
 
 let listName = getListName()
 ;(function insertBirthdayName(){
